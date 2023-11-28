@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar.medium(
-            title: Text('LuxeTime',style: TextStyles.title),
+            title: Text('LuxeTime',style: MyTexts.title),
             backgroundColor: Theme.of(context).colorScheme.background.withOpacity(0.9),
           ),
           SliverToBoxAdapter(

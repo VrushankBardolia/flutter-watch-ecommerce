@@ -11,29 +11,33 @@ class PasswordField extends StatefulWidget {
 }
 
 class _PasswordFieldState extends State<PasswordField> {
-
   bool passwordVisible= false;
+
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: widget.controller,
+      style: const TextStyle(fontSize: 18),
       decoration: InputDecoration(
         hintText: '******',
         enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide.none
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide.none
         ),
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(
-                color: Theme.of(context).colorScheme.primary,
-              width: 2
-            ),
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.primary,
+            width: 2
+          ),
         ),
         filled: true,
         fillColor: Theme.of(context).colorScheme.surface,
         suffixIcon: IconButton(
-          icon: Icon(passwordVisible ? CupertinoIcons.eye_slash_fill : CupertinoIcons.eye_fill),
+          icon: Icon(
+            passwordVisible ? CupertinoIcons.eye_slash_fill : CupertinoIcons.eye_fill,
+            color: Theme.of(context).colorScheme.primary,
+          ),
           onPressed: () {
             setState(() {
               passwordVisible = !passwordVisible;

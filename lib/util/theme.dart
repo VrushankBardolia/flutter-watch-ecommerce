@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const colorTheme = ColorScheme(
+// ignore: constant_identifier_names
+const MyColors = ColorScheme(
   brightness: Brightness.light,
 
   primary: Color(0xFF00166E),
@@ -26,18 +27,24 @@ const colorTheme = ColorScheme(
   surfaceTint: Color(0xFFCBEEFF),
 );
 
-class TextStyles extends TextStyle{
+class MyTexts extends TextStyle{
 
   static TextStyle largeTitle = GoogleFonts.inconsolata(
     fontSize: 36,
     fontWeight: FontWeight.w700,
     letterSpacing: 1.5,
-    color: const Color(0xFF00053C) // primary
+    color: MyColors.primary
   );
 
   static TextStyle title = GoogleFonts.inconsolata(
     fontSize: 32,
     fontWeight: FontWeight.w600,
-    color: const Color(0xFF00053C) // primary
+    color: MyColors.primary
   );
+
+  static TextStyle heading = const TextStyle(fontSize: 32, fontWeight: FontWeight.w600,);
+
+  static TextStyle label = const TextStyle(fontSize: 16, fontWeight: FontWeight.w600);
+
+  static TextStyle hint = const TextStyle(fontSize: 16);
 }

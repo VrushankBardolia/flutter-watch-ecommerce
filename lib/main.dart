@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:luxetime/screens/login.dart';
 
-import '../screens/splash.dart';
+import '../screens/login.dart';
 import '../util/theme.dart';
 
 void main() {
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'LuxeTime',
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: colorTheme,
+        colorScheme: MyColors,
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
       home:const Login()

@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
           totalRepeatCount: 1,
           animatedTexts:[
             TyperAnimatedText('LuxeTime',
-              textStyle: TextStyles.largeTitle,
+              textStyle: MyTexts.largeTitle,
               speed: const Duration(milliseconds: 300),
               curve: Curves.easeInOut
             )
