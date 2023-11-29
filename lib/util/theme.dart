@@ -2,11 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// ignore: constant_identifier_names
-const MyColors = ColorScheme(
+const ColorScheme MyColors = ColorScheme(
   brightness: Brightness.light,
 
-  primary: Color(0xFF00166E),
+  primary: Color(0xFF002C6E),
   onPrimary: Color(0xFFFFFFFF),
   primaryContainer: Color(0xFFB5DAFF),
   onPrimaryContainer: Color(0xFF001E30),

@@ -6,9 +6,8 @@ import '../components/passwordField.dart';
 import '../util/theme.dart';
 
 class Login extends StatefulWidget {
-  // final void Function() onTap;
-  // const Login({super.key, required this.onTap});
-  const Login({super.key});
+  final void Function() onTap;
+  const Login({super.key, required this.onTap});
 
   @override
   State<Login> createState() => _LoginState();
@@ -60,7 +59,7 @@ class _LoginState extends State<Login> {
                     const SizedBox(width: 8),
 
                     GestureDetector(
-                      // onTap: widget.onTap,
+                      onTap: widget.onTap,
                       child: Text('Sign Up',
                         style: TextStyle(fontSize: 16,color: MyColors.primary)
                       ),

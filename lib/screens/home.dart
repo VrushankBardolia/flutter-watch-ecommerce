@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  logout()async{
+    await FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +26,7 @@ class _HomeState extends State<Home> {
           SliverAppBar.medium(
             title: Text('LuxeTime',style: MyTexts.title),
             backgroundColor: Theme.of(context).colorScheme.background.withOpacity(0.9),
+            actions: [IconButton(onPressed: logout, icon: const Icon(Icons.logout_rounded))],
           ),
           SliverToBoxAdapter(
             child: Padding(

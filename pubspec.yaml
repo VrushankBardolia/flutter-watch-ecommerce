@@ -38,6 +38,8 @@ dependencies:
   get:
   google_fonts:
   animated_text_kit:
+  firebase_core: ^2.24.0
+  firebase_auth:
 
 dev_dependencies:
   flutter_test:

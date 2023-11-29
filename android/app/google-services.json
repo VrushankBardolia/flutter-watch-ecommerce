@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "323571340629",
+    "project_id": "luxetime-vb",
+    "storage_bucket": "luxetime-vb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323571340629:android:b03fda42d13d5c85ee4bdc",
+        "android_client_info": {
+          "package_name": "com.example.luxetime"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD64K8WJcVN1IE0k8cX_aXJXesulHZNr88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

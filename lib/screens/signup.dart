@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:luxetime/components/loader.dart';
 
 import '../components/fullButton.dart';
 import '../components/normalField.dart';
@@ -6,7 +9,8 @@ import '../components/passwordField.dart';
 import '../util/theme.dart';
 
 class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+  final void Function() onTap;
+  const SignUp({super.key, required this.onTap});
 
   @override
   State<SignUp> createState() => _SignUpState();
@@ -17,6 +21,19 @@ class _SignUpState extends State<SignUp> {
   final emailController = TextEditingController();
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
+
+  signUp()async{
+    try{
+      showDialog(context: context, builder: (context)=>const Loader());
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text
+      );
+      Get.back();
+    }catch(e){
+
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +54,7 @@ class _SignUpState extends State<SignUp> {
                     Text('Full Name',style: MyTexts.label),
                     NormalField(
                       controller: fnameController,
-                      hint: 'Vrushank Bardolia',
+                      hint: 'First Last',
                       textType: TextInputType.name,
                     ),
                     const SizedBox(height: 12),
@@ -52,7 +69,7 @@ class _SignUpState extends State<SignUp> {
 
                     Text('Phone No.',style: MyTexts.label),
                     NormalField(
-                      controller: emailController,
+                      controller: phoneController,
                       hint: '+91 9876543210',
                       textType: TextInputType.phone,
                     ),
@@ -64,7 +81,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 const SizedBox(height: 20),
 
-                FullButton(text: 'Create Account', onTap: () {}),
+                FullButton(text: 'Create Account', onTap:signUp),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -74,7 +91,7 @@ class _SignUpState extends State<SignUp> {
                     const SizedBox(width: 8),
 
                     GestureDetector(
-                      // onTap: widget.onTap,
+                      onTap: widget.onTap,
                       child: Text('Login', style: TextStyle(fontSize: 16,color: MyColors.primary)),
                     )
                   ],
