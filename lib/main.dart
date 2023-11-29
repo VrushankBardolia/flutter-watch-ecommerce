@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../screens/login.dart';
+import '../screens/signup.dart';
 import '../util/theme.dart';
 
 void main() {
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: MyColors,
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
-      home:const Login()
+      home:const SignUp()
     );
   }
 }

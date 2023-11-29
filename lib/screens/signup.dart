@@ -5,17 +5,17 @@ import '../components/normalField.dart';
 import '../components/passwordField.dart';
 import '../util/theme.dart';
 
-class Login extends StatefulWidget {
-  // final void Function() onTap;
-  // const Login({super.key, required this.onTap});
-  const Login({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> {
+class _SignUpState extends State<SignUp> {
+  final fnameController = TextEditingController();
   final emailController = TextEditingController();
+  final phoneController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
@@ -28,18 +28,33 @@ class _LoginState extends State<Login> {
             child: Column(
               children: [
                 const SizedBox(height: 20),
-
-                Text('Login',style: MyTexts.heading),
-                const SizedBox(height: 40),
+                Text('Signup',style: MyTexts.heading),
+                const SizedBox(height: 30),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+
+                    Text('Full Name',style: MyTexts.label),
+                    NormalField(
+                      controller: fnameController,
+                      hint: 'Vrushank Bardolia',
+                      textType: TextInputType.name,
+                    ),
+                    const SizedBox(height: 12),
 
                     Text('E-mail',style: MyTexts.label),
                     NormalField(
                       controller: emailController,
                       hint: 'example@domain.com',
-                      textType: TextInputType.name,
+                      textType: TextInputType.emailAddress,
+                    ),
+                    const SizedBox(height: 12),
+
+                    Text('Phone No.',style: MyTexts.label),
+                    NormalField(
+                      controller: emailController,
+                      hint: '+91 9876543210',
+                      textType: TextInputType.phone,
                     ),
                     const SizedBox(height: 12),
 
@@ -47,23 +62,20 @@ class _LoginState extends State<Login> {
                     PasswordField(controller: passwordController)
                   ],
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 20),
 
-                FullButton(text: 'Login', onTap: () {}),
-
-                const SizedBox(height: 30),
+                FullButton(text: 'Create Account', onTap: () {}),
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
 
-                    Text('Don\'t Have An Account?',style: MyTexts.hint),
+                    Text('Already Have An Account?',style: MyTexts.hint),
                     const SizedBox(width: 8),
 
                     GestureDetector(
                       // onTap: widget.onTap,
-                      child: Text('Sign Up',
-                        style: TextStyle(fontSize: 16,color: MyColors.primary)
-                      ),
+                      child: Text('Login', style: TextStyle(fontSize: 16,color: MyColors.primary)),
                     )
                   ],
                 ),
