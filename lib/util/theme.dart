@@ -43,6 +43,8 @@ class MyTexts extends TextStyle{
 
   static TextStyle heading = const TextStyle(fontSize: 32, fontWeight: FontWeight.w600,);
 
+  static TextStyle subHeading = const TextStyle(fontSize: 24, fontWeight: FontWeight.w600,);
+
   static TextStyle label = const TextStyle(fontSize: 16, fontWeight: FontWeight.w600);
 
   static TextStyle hint = const TextStyle(fontSize: 16);

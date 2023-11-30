@@ -2,10 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:luxetime/screens/splash.dart';
 
+import '../screens/splash.dart';
 import '../util/theme.dart';
-import '../helper/authHelper.dart';
 import '../helper/firebase_options.dart';
 
 void main() async{
