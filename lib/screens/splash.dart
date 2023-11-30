@@ -4,7 +4,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../screens/home.dart';
+import '../helper/authHelper.dart';
 import '../util/theme.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState(){
     super.initState();
     Timer(const Duration(seconds: 5), () {
-      Get.offAll(()=>const Home());
+      Get.offAll(()=>const AuthPage());
     });
   }
 
