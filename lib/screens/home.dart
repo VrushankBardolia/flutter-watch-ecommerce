@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:luxetime/components/snackbar.dart';
 
 import '../components/alerts.dart';
+import '../components/carousel.dart';
 import '../util/theme.dart';
 
 class Home extends StatefulWidget {
@@ -44,13 +45,14 @@ class _HomeState extends State<Home> {
             backgroundColor: Theme.of(context).colorScheme.background.withOpacity(0.9),
             actions: [IconButton(onPressed: logout, icon: const Icon(Icons.logout_rounded))],
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.symmetric(vertical: 0),
               child: Center(
                 child: Column(
                   children: [
-                    CupertinoButton.filled(onPressed: show, child: const Text('show'))
+                    // CupertinoButton.filled(onPressed: show, child: const Text('show')),
+                    Carousel()
                   ],
                 ),
               )
