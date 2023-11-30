@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:luxetime/components/snackbar.dart';
 
+import '../components/alerts.dart';
 import '../util/theme.dart';
 
 class Home extends StatefulWidget {
@@ -13,8 +16,21 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+  Alerts alerts = Alerts();
+  MySnackbar snackbar = MySnackbar();
+
+  show(){
+    // alerts.ActionAlert(context,'Hello','Okay',(){Get.back();});
+    // alerts.SimpleAlert(context, 'Simple');
+    ScaffoldMessenger.of(context).showSnackBar(snackbar.Success('Logged in!'));
+  }
+
   logout()async{
-    await FirebaseAuth.instance.signOut();
+    alerts.ActionAlert(context, 'Do you want to logout?', 'Logout', ()async{
+          await FirebaseAuth.instance.signOut();
+          ScaffoldMessenger.of(context).showSnackBar(snackbar.Normal('Logged Out!'));
+          Get.back();}
+    );
   }
 
   @override
@@ -31,10 +47,13 @@ class _HomeState extends State<Home> {
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: 2000,
-                color: CupertinoColors.destructiveRed,
-              ),
+              child: Center(
+                child: Column(
+                  children: [
+                    CupertinoButton.filled(onPressed: show, child: const Text('show'))
+                  ],
+                ),
+              )
             ),
           )
         ],

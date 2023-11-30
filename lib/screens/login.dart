@@ -1,8 +1,16 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: use_build_context_synchronously
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../components/alerts.dart';
 import '../components/fullButton.dart';
+import '../components/loader.dart';
 import '../components/normalField.dart';
 import '../components/passwordField.dart';
+import '../components/snackbar.dart';
 import '../util/theme.dart';
 
 class Login extends StatefulWidget {
@@ -16,6 +24,30 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  Alerts alerts = Alerts();
+  MySnackbar snackbar = MySnackbar();
+
+  login()async{
+    try{
+      showDialog(context: context, builder: (context)=>const Loader());
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackbar.Success('Logged in!'));
+      Get.back();
+    }on FirebaseAuthException catch(e){
+      Get.back();
+      // print('ERROR>>>>>>>>${e.code}');
+      if(e.code=="invalid-credential"){
+        alerts.SimpleAlert(context,"Invalid E-mail or Password");
+      }
+      if(e.code=="invalid-email"){
+        alerts.SimpleAlert(context,"Enter properly formatted \nE-mail!");
+      }
+      // alerts.SimpleAlert(context, e.code);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +80,7 @@ class _LoginState extends State<Login> {
                 ),
                 const SizedBox(height: 50),
 
-                FullButton(text: 'Login', onTap: () {}),
-
+                FullButton(text: 'Login', onTap: login),
                 const SizedBox(height: 30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
